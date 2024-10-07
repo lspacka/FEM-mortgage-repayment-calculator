@@ -1,6 +1,14 @@
+/* 
+  TODO:
+    - check radio button by clicking anywhere on its container
+    - make input cursor thicker
+    - box shadow
+*/
+
 :root {
   --lime:       hsl(61, 70%, 52%);
   --red:        hsl(4, 69%, 50%);
+  --fafae:      hsl(60, 72%, 93%);
   --slate-100:  hsl(202, 86%, 94%);
   --slate-300:  hsl(203, 41%, 72%);
   --slate-500:  hsl(200, 26%, 54%);
@@ -18,10 +26,6 @@
 body {
   font-family: 'plus jakarta sans';
   background-color: var(--slate-100);
-  /* padding: 2em 0; */
-  /* min-height: 100vh; */
-  /* display: grid;
-  place-content: center; */
 }
 
 a {
@@ -35,35 +39,29 @@ img {
 
 label {
   display: block;
-  /* font-size: clamp(0.8rem, 4.5vw, 1rem); */
 }
 
 .main-container {
-  /* width: 80%; */
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  border: 2px solid orangered;
+  /* margin: 0 auto; */
   background-color: white;
 }
 
-.form,
-.results {
-  /* width: 50%; */
-  padding: 2em 1em;
-  border: 1px solid greenyellow;
+.form {
+  padding: 2em clamp(1em, 5vw, 2em);
 }
 
 .form,
 .term-rate {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: clamp(1.5em, 5vw, 1.7em);  /* maybe 1.5-2em */
 }
 
 .heading-label {
-  font-size: clamp(1.2rem, 5vw, 2.5rem);
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: var(--slate-900);
   font-weight: 700;
   margin-bottom: 0.5em;
@@ -75,10 +73,6 @@ label {
   font-size: clamp(0.8rem, 4.5vw, 1rem);
   font-weight: 500;
 }
-
-/* .main-label {
-  font-size: clamp(0.8rem, 4.5vw, 1rem);
-} */
 
 .input-container {
   margin-top: 0.7em;
@@ -105,16 +99,12 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 0.8em 1.1em; */
   padding: 0 1.1em;
   height: 100%;
-  /* text-align: center; */
-  /* line-height: 100%; */
   background-color: var(--slate-100);
   color: var(--slate-700);
   font-weight: 700;
-  font-size: clamp(0.9rem, 4.5vw, 1.2rem);
-  /* font-size: 0.8rem; */
+  font-size: clamp(0.9rem, 4.5vw, 1rem);
 }
 
 .text-input {
@@ -122,6 +112,31 @@ label {
   height: 100%;
   border: none;
   border-radius: 5px;
+  outline: none;
+  padding-left: 2em;
+  font-family: inherit;
+  font-weight: 700;
+  caret-shape: block;
+  font-size: clamp(.9rem, 4vw, 1.1rem);
+}
+
+/* dont judge. .input:hover doesnt work right and couldnt be bothered to debug it */
+.text-input:hover,
+.radio-input:hover,
+.radio-input *:hover {
+  cursor: pointer;
+}
+
+.input:focus-within {
+  border-color: var(--lime);
+}
+
+.input-container:focus-within label {
+  background-color: var(--lime);
+}
+
+.radio-input:focus-within {
+  background-color: var(--fafae)
 }
 
 .radio-inputs {
@@ -131,10 +146,13 @@ label {
 }
 
 .radio-input {
-  /* display: flex; */
   gap: 1em;
   padding: 0 1em;
 }
+/* 
+.radio-input input:checked + label {
+
+} */
 
 .radio-input > input {
   transform: scale(1.4);
@@ -147,14 +165,9 @@ label {
   font-size: clamp(.9rem, 5vw, 1rem);
 }
 
-/* .button-img {
-  vertical-align: center;
-} */
-
 .calc-img {
   display: block;
   width: 90%;
-  /* vertical-align: center; */
 }
 
 .calc-button {
@@ -171,7 +184,7 @@ label {
 
 .results {
   background-color: var(--slate-900);
-  padding: 3em 1.5em;
+  padding: 3em clamp(1.5em, 5vw, 2.3em);
   text-align: center;
 }
 
@@ -180,13 +193,15 @@ label {
 }
 
 .results-header {
-  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-size: clamp(1.3rem, 5vw, 1.5rem);
   color: white;
-  margin-bottom: 0.7em;
+  margin: 0.5em 0 0.7em;
+  /* margin-top: 0.3em;
+  margin-bottom: 0.7em; */
 }
 
 .results-p {
-  font-size: clamp(0.8rem, 4.5vw, 1.1rem);
+  font-size: clamp(0.8rem, 4.5vw, 1.02rem);
   color: var(--slate-300);
   line-height: 1.5;
 }
@@ -196,14 +211,49 @@ label {
   body {
     display: grid;
     place-content: center;
+    min-height: 100vh;
   }
 
   .main-container {
     flex-direction: row;
+    border-radius: 20px;
   }
 
-  .form,
+  /* .form,
   .results {
     width: 50%;
+  } */
+
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .term-rate {
+    flex-direction: row;
+  }
+
+  .calc-button {
+    margin-top: 0.5em;
+    width: 70%;
+  }
+
+  .results {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    border-radius: 0 20px 20px 75px;
+  }
+
+  .results-img-container {
+    width:50%;
+    margin: 0 auto;
+  }
+
+  .results-header {
+    margin: 1em 0 0.5em;
+    /* margin-top: 0.3em; */
+    /* margin-bottom: 0.5em; */
   }
 }
