@@ -1,0 +1,24 @@
+alright, just made some small changes to the html.
+I want you to wire up the logic, considering:
+1. all the inputs are required, if its attempted to calc
+without any of them then display the .input-error and change the border of .input-container to red
+2. the result is to be displayed in .results, changing the  content html to:
+<!-- if you think there are better names for the classes in this 
+piece of code please chnage them -->
+<p>Your results</p>
+<p>
+    Your results are shown below based on the information you provided. 
+    To adjust the results, edit the form and click “calculate repayments” again.
+</p>
+<div class="results-container">
+    <div class="monthly-repay">
+        <p>Your monthly repayments</p>
+        <p>put number here</p>
+    </div>
+    <div class="total-repay">
+        <p>Total you'll repay over the term</p>
+        <p>put number here</p>
+    </div>
+</div>
+
+obv displaying the results where it says "put number here",

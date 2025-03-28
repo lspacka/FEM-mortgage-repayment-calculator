@@ -3,6 +3,8 @@
     - check radio button by clicking anywhere on its container
     - make input cursor thicker
     - box shadow
+    - add transitions to inputs
+    - fix radio inputs
 */
 
 :root {
@@ -20,11 +22,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 0;
+  min-height: 0;
+}
+
+html {
+  font-family: 'plus jakarta sans';
 }
 
 body {
-  font-family: 'plus jakarta sans';
   background-color: var(--slate-100);
 }
 
@@ -45,9 +50,28 @@ label {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  /* margin: 0 auto; */
   background-color: white;
 }
+
+.input-error {
+  font-size: .7rem;
+  color: var(--red);
+  display: none;
+}
+
+.input-error:not(.radio-error) {
+  padding-top: .7rem;
+}
+
+.radio-error {
+  padding-top: .2rem;
+}
+
+/* .mortgage-amount.error,
+.term-rate.error,
+.mortgage-type.error {
+
+} */
 
 .form {
   padding: 2em clamp(1em, 5vw, 2em);
@@ -57,10 +81,11 @@ label {
 .term-rate {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5em, 5vw, 1.7em);  /* maybe 1.5-2em */
+  gap: clamp(1.5em, 5vw, 1.7em);  
 }
 
-.heading-label {
+.heading-label,
+.results-title {
   font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: var(--slate-900);
   font-weight: 700;
@@ -120,10 +145,13 @@ label {
   font-size: clamp(.9rem, 4vw, 1.1rem);
 }
 
-/* dont judge. .input:hover doesnt work right and couldnt be bothered to debug it */
-.text-input:hover,
+/* dont judge. .input:hover doesnt work right and couldnt be bothered to debug it*/
+/* .text-input:hover,
 .radio-input:hover,
 .radio-input *:hover {
+  cursor: pointer;
+} */
+.input input:hover {
   cursor: pointer;
 }
 
@@ -139,20 +167,16 @@ label {
   background-color: var(--fafae)
 }
 
-.radio-inputs {
+.mortgage-type {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: .5em;
 }
 
 .radio-input {
   gap: 1em;
   padding: 0 1em;
 }
-/* 
-.radio-input input:checked + label {
-
-} */
 
 .radio-input > input {
   transform: scale(1.4);
@@ -184,7 +208,8 @@ label {
 
 .results {
   background-color: var(--slate-900);
-  padding: 3em clamp(1.5em, 5vw, 2.3em);
+  /* padding: 3em clamp(1.5em, 5vw, 2.3em); */
+  padding: 2em clamp(1em, 5vw, 2em);
   text-align: center;
 }
 
@@ -196,14 +221,28 @@ label {
   font-size: clamp(1.3rem, 5vw, 1.5rem);
   color: white;
   margin: 0.5em 0 0.7em;
-  /* margin-top: 0.3em;
-  margin-bottom: 0.7em; */
 }
 
 .results-p {
   font-size: clamp(0.8rem, 4.5vw, 1.02rem);
   color: var(--slate-300);
   line-height: 1.5;
+}
+
+.results-title {
+  padding-bottom: .5rem;
+}
+
+.results-container {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-top: 4px solid var(--lime);
+  border-radius: 7px;
+  background-color: var(--slate-900);
+}
+
+.monthly-repayment {
+  border-bottom: 1px solid var(--slate-500);
 }
 
 
@@ -218,11 +257,6 @@ label {
     flex-direction: row;
     border-radius: 20px;
   }
-
-  /* .form,
-  .results {
-    width: 50%;
-  } */
 
   .heading {
     display: flex;
@@ -246,6 +280,11 @@ label {
     border-radius: 0 20px 20px 75px;
   }
 
+  .results.on {
+    place-content: unset;
+    text-align: left;
+  }
+
   .results-img-container {
     width:50%;
     margin: 0 auto;
@@ -253,7 +292,5 @@ label {
 
   .results-header {
     margin: 1em 0 0.5em;
-    /* margin-top: 0.3em; */
-    /* margin-bottom: 0.5em; */
   }
 }

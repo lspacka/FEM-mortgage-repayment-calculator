@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Frontend Mentor | Mortgage repayment calculator</title>
   </head>
   <body>
@@ -15,15 +16,17 @@
       <div class="main-container">
         <div class="form">
           <div class="heading">
-            <label for="" class="heading-label">Mortgage Calculator</label>
+            <!-- <label for="" class="heading-label">Mortgage Calculator</label> -->
+             <h1 class="heading-label">Mortgage Calculator</h1>
             <a href="" class="clear-all">Clear All</a>
           </div>
-          <div class="main-input">
+          <div class="mortgage-amount">
             <label for="" class="main-label">Mortgage Amount</label>
             <div class="input-container input">
               <label for="" class="blue-label blue-1">£</label>
               <input type="text" class="text-input">
             </div>
+            <p class="input-error">This field is required</p>
           </div>
           <div class="term-rate">
             <div class="info">
@@ -32,6 +35,7 @@
                 <input type="text" class="text-input">
                 <label for="" class="blue-label">years</label>
               </div>
+              <p class="input-error">This field is required</p>
             </div>
             <div class="info">
               <label for="" class="main-label">Interest Rate</label>
@@ -39,9 +43,10 @@
                 <input type="text" class="text-input">
                 <label for="" class="blue-label">%</label>
               </div>
+              <p class="input-error">This field is required</p>
             </div>
           </div>
-          <div class="radio-inputs">
+          <div class="mortgage-type">
             <label for="" class="main-label">Mortgage Type</label>
             <div class="radio-input input">
               <input type="radio" name="group-1" id="radio-1">
@@ -51,6 +56,7 @@
               <input type="radio" name="group-1" id="radio-2">
               <label for="radio-2" class="radio-label">Interest Only</label>
             </div>
+            <p class="input-error radio-error">This field is required</p>
         </div>
         <a href="" class="calc-button">
           <div class="button-img">
@@ -59,11 +65,11 @@
           Calculate Repayments
         </a>
       </div>
-      <div class="results">
+      <div class="results off">
         <div class="results-img-container">
           <img src="./assets/images/illustration-empty.svg" alt="image of calculator" class="results-img">
         </div>
-        <h1 class="results-header">Results shown here</h1>
+        <h2 class="results-header">Results shown here</h2>
         <p class="results-p">
           Complete the form and click “calculate repayments” to see what 
           your monthly repayments would be.
@@ -72,7 +78,23 @@
     </main>
   </body>
 </html>
-
+<!-- <div class="results on">
+        <p>Your results</p>
+        <p>
+          Your results are shown below based on the information you provided. 
+          To adjust the results, edit the form and click “calculate repayments” again.
+        </p>
+        <div class="results-container">
+          <div class="monthly-repay">
+            <p>Your monthly repayments</p>
+            <p>put number here</p>
+          </div>
+          <div class="total-repay">
+            <p>Total you'll repay over the term</p>
+            <p>put number here</p>
+          </div>
+        </div>
+      </div> -->
 <!-- Mortgage Calculator
   Clear All
 
