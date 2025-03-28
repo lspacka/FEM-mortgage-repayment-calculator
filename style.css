@@ -16,6 +16,7 @@
   --slate-500:  hsl(200, 26%, 54%);
   --slate-700:  hsl(200, 24%, 40%);
   --slate-900:  hsl(202, 55%, 16%);
+  --slater:   hsl(202, 56%, 12%);
 }
 
 * {
@@ -45,6 +46,43 @@ img {
 label {
   display: block;
 }
+
+input {
+  color: var(--slate-900);
+}
+
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--slate-700); /* Border color */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Style the checked state */
+input[type="radio"]:checked {
+  border-color: var(--lime); /* Change border color when checked */
+}
+
+/* Add the inner dot when checked */
+input[type="radio"]:checked::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: var(--lime); /* Change dot color */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -48%);
+}
+
 
 .main-container {
   max-width: 1000px;
@@ -107,8 +145,13 @@ label {
   display: flex;
   align-items: center;
   height: 45px;
-  border: var(--slate-300) 1.5px solid;
+  border: var(--slate-300) 2px solid;
   border-radius: 5px;
+}
+
+.input,
+.blue-label {
+  transition: .3s ease-in;
 }
 
 .blue-1 {
@@ -210,7 +253,7 @@ label {
   background-color: var(--slate-900);
   /* padding: 3em clamp(1.5em, 5vw, 2.3em); */
   padding: 2em clamp(1em, 5vw, 2em);
-  text-align: center;
+  text-align: left;
 }
 
 .results-img {
@@ -231,22 +274,47 @@ label {
 
 .results-title {
   padding-bottom: .5rem;
+  color: var(--fafae);
 }
 
 .results-container {
-  margin-top: 2.5rem;
-  padding: 2rem;
+  padding: clamp(1.3rem, 5vw, 2rem) clamp(1rem, 5vw, 2rem);
   border-top: 4px solid var(--lime);
   border-radius: 7px;
-  background-color: var(--slate-900);
+  background-color: var(--slater);
+  color: var(--slate-300);
+  margin-top: clamp(1.5rem, 5vw, 2.5rem);
 }
 
 .monthly-repayment {
   border-bottom: 1px solid var(--slate-500);
 }
 
+.monthly {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--lime);
+  padding: .5rem 0 1.5rem;
+}
 
-@media (min-width: 700px) {
+.monthly-p,
+.total-p {
+  font-size: clamp(.9rem, 4vw, 1.1rem);
+}
+
+.total-repayment {
+  padding-top: 1.5rem;
+}
+
+.total {
+  padding-top: .5rem;
+  font-size: clamp(1.1rem, 5vw, 1.5rem);
+  color: var(--fafae);
+  font-weight: 700;
+}
+
+
+@media (min-width: 800px) {
   body {
     display: grid;
     place-content: center;
@@ -278,11 +346,12 @@ label {
     flex-direction: column;
     place-content: center;
     border-radius: 0 20px 20px 75px;
+    max-width: 50%;
   }
 
   .results.on {
     place-content: unset;
-    text-align: left;
+    /* text-align: left; */
   }
 
   .results-img-container {

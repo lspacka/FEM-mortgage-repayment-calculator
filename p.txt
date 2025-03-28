@@ -3,8 +3,7 @@ I want you to wire up the logic, considering:
 1. all the inputs are required, if its attempted to calc
 without any of them then display the .input-error and change the border of .input-container to red
 2. the result is to be displayed in .results, changing the  content html to:
-<!-- if you think there are better names for the classes in this 
-piece of code please chnage them -->
+
 <p>Your results</p>
 <p>
     Your results are shown below based on the information you provided. 

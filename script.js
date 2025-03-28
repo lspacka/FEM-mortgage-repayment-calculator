@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!input.value.trim()) {
                 errorMessages[index].classList.add("show");
                 errorMessages[index].style.display = "block";
-                input.closest(".input-container").style.border = "2px solid red";
+                input.closest(".input-container").style.border = "2px solid hsl(4, 69%, 50%)";
                 isValid = false;
             }
         });
@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="results-p">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
             <div class="results-container">
                 <div class="monthly-repayment">
-                    <p>Your monthly repayments</p>
+                    <p class="monthly-p">Your monthly repayments</p>
                     <p class="monthly">£${monthly}</p>
                 </div>
                 <div class="total-repayment">
-                    <p>Total you'll repay over the term</p>
+                    <p class="total-p">Total you'll repay over the term</p>
                     <p class="total">£${total}</p>
                 </div>
             </div>
