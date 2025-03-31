@@ -12,14 +12,14 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Screenshot
+#
 
 ![](./screenshot.png)
 
 ### Links
 
--  [Solution](https://your-solution-url.com)
--  [Live Site](https://your-live-site-url.com)
+-  [Solution](https://www.frontendmentor.io/solutions/mortgage-repayment-calculator-Hma_Ev4-cb)
+-  [Live Site](https://lspacka.github.io/FEM-mortgage-repayment-calculator/)
 
 ### Built with
 

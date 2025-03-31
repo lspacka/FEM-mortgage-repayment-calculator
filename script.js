@@ -1,3 +1,6 @@
+// shout out to gtp 4o for one-shotting this one
+// all the retarded looking addendums are from regular gpt
+
 document.addEventListener("DOMContentLoaded", () => {
     const calculateButton = document.querySelector(".calc-button");
     const inputs = document.querySelectorAll(".text-input");
@@ -5,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorMessages = document.querySelectorAll(".input-error");
     const resultsContainer = document.querySelector(".results");
     const mortgageAmountInput = document.querySelector(".mortgage-amount .text-input");
-    // const blue_label = document.querySelectorAll(".blue-label")
     
     function clearErrors() {
         errorMessages.forEach(error => error.classList.remove("show"));
@@ -24,12 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const label = container.querySelector(".blue-label")
             let value = input.value.trim().replace(/,/g, "")
 
-            // if (!input.value.trim()) {
             if (!value || isNaN(value)) {
                 errorMessages[index].classList.add("show");
                 errorMessages[index].style.display = "block";
-                // input.closest(".input-container").style.border = "2px solid hsl(4, 69%, 50%)";
-                // container.classList.add("error")
                 container.style.border = "2px solid hsl(4, 69%, 50%)"
                 container.classList.add("error")
 
@@ -121,12 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = input.closest(".input-container");
             const error = container.nextElementSibling;
             const label = container.querySelector(".blue-label");
-            // const error = input.closest(".input-container").nextElementSibling;
             if (error && error.classList.contains("input-error")) {
                 error.style.display = "none";
                 container.style.border = ""
                 container.classList.remove("error")
-                // input.closest(".input-container").style.border = "";
 
                 if (label)
                     label.classList.remove("error")
