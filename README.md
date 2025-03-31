@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
+- HTML
 - CSS
 - JavaScript
 
