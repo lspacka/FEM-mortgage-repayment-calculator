@@ -1,5 +1,4 @@
 // shout out to gtp 4o for one-shotting this one
-// all the retarded looking addendums are from regular gpt
 
 document.addEventListener("DOMContentLoaded", () => {
     const calculateButton = document.querySelector(".calc-button");
